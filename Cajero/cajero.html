@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automatico xd</title>
+    <link rel="stylesheet" href="CSS/cajerostyle.css">
+</head>
+
+<body>
+
+    <div class="cajero-maquina">
+        <div class="pantalla" id="pantallaMensaje">
+            Bienvenido al Banco.<br>Seleccione operacion
+        </div>
+
+        <div class="controles">
+            <input type="number" id="inputMonto" class="input-monto" placeholder="Ingrese el monto (S/)">
+
+            <div class="botones-grid">
+                <button class="btn-saldo" onclick="consultarSaldo()">Consultar Saldo</button>
+                <button class="btn-retirar" onclick="retirarDinero()">Retirar</button>
+                <button class="btn-depositar" onclick="depositarDinero()">Depositar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scrip.js"></script>
+
+</body>
+</html>

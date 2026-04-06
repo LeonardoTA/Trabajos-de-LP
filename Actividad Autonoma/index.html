@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de servicios dinámico - Actividad Autónoma (versión mejorada)" />
+  <title>Catálogo de Servicios — Versión Mejorada</title>
+  <!--
+    BASE: este archivo parte del index.html de la Actividad Práctica.
+    Se mantiene la misma estructura de encabezado, contenedor principal,
+    barra de filtro, galería, modal y toast.
+    MEJORAS añadidas:
+      1. Ordenamiento de tarjetas (precio y nombre)
+      2. Filtro por precio máximo (slider)
+      3. Botón para limpiar filtros
+      4. Calificación con estrellas visible en la tarjeta y en el modal
+  -->
+  <link rel="stylesheet" href="CSS/styles.css" />
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO (igual que en la Actividad Práctica) ===== -->
+  <header class="encabezado">
+    <h1>🛒 Catálogo de Servicios</h1>
+    <p class="subtitulo">Explora nuestros servicios disponibles</p>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <!-- ===== BARRA DE FILTROS (base de la Práctica + mejoras) ===== -->
+    <div class="barra-filtro">
+
+      <!-- Búsqueda por texto — igual que en la Práctica -->
+      <input
+        type="text"
+        id="inputBusqueda"
+        placeholder="🔍 Buscar servicio..."
+        aria-label="Buscar servicios"
+      />
+
+      <!-- Filtro por categoría — igual que en la Práctica -->
+      <select id="selectCategoria" aria-label="Filtrar por categoría">
+        <option value="todas">Todas las categorías</option>
+        <option value="Diseño">Diseño</option>
+        <option value="Desarrollo">Desarrollo</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Soporte">Soporte</option>
+      </select>
+
+      <!-- MEJORA 1: Ordenamiento de datos -->
+      <select id="selectOrden" aria-label="Ordenar por">
+        <option value="defecto">Ordenar por...</option>
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+        <option value="nombre-asc">Nombre: A → Z</option>
+        <option value="nombre-desc">Nombre: Z → A</option>
+      </select>
+
+    </div>
+
+    <!-- MEJORA 2: Filtro de precio máximo (slider) -->
+    <div class="barra-precio">
+      <label for="rangoPrecio" class="label-precio">
+        💰 Precio máximo: <strong id="valorPrecio">S/ 3000</strong>
+      </label>
+      <input
+        type="range"
+        id="rangoPrecio"
+        min="80" max="3000" step="20" value="3000"
+        aria-label="Filtrar por precio máximo"
+      />
+      <div class="limites-slider">
+        <span>S/ 80</span>
+        <span>S/ 3000</span>
+      </div>
+    </div>
+
+    <!-- MEJORA 3: Botón para limpiar todos los filtros -->
+    <div class="barra-acciones">
+      <p class="contador-resultados" id="contadorResultados"></p>
+      <button id="btnLimpiar" class="btn-limpiar" aria-label="Limpiar todos los filtros">
+        ✕ Limpiar filtros
+      </button>
+    </div>
+
+    <!-- Galería de tarjetas — igual que en la Práctica -->
+    <div class="galeria-tarjetas" id="galeriaServicios">
+      <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+    </div>
+
+    <!-- Mensaje sin resultados — igual que en la Práctica -->
+    <div class="sin-resultados oculto" id="sinResultados">
+      <span>😕</span>
+      <p>No se encontraron servicios con ese criterio.</p>
+    </div>
+
+  </main>
+
+  <!-- Modal de detalle — igual que en la Práctica + calificación -->
+  <div class="overlay-modal oculto" id="overlayModal">
+    <div class="modal-detalle" id="modalDetalle" role="dialog" aria-modal="true">
+      <button class="btn-cerrar-modal" id="btnCerrarModal" aria-label="Cerrar">✕</button>
+      <div class="modal-icono" id="modalIcono"></div>
+      <h2 class="modal-titulo" id="modalTitulo"></h2>
+      <span class="modal-categoria" id="modalCategoria"></span>
+      <!-- MEJORA 4: Estrellas en el modal -->
+      <div class="modal-estrellas" id="modalEstrellas"></div>
+      <p class="modal-descripcion" id="modalDescripcion"></p>
+      <div class="modal-precio" id="modalPrecio"></div>
+      <button class="btn-contratar" id="btnContratar">🚀 Contratar servicio</button>
+    </div>
+  </div>
+
+  <!-- Toast de notificación — igual que en la Práctica -->
+  <div class="toast oculto" id="toastNotificacion">
+    ✅ ¡Servicio contratado correctamente!
+  </div>
+
+  <footer class="pie-pagina">
+    <p>Actividad Autónoma — Catálogo de Servicios Mejorado &copy; 2025</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>

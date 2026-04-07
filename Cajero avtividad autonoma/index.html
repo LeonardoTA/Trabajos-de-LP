@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cajero Automatico</title>
+    <link rel="stylesheet" href="CSS/estilos.css" />
+</head>
+
+<body>
+
+    <div id="pantalla-menu" class="pantalla activa">
+        <div class="tarjeta">
+            <div class="encabezado">
+                <div>
+                    <p class="nombre">James Tequen</p>
+                    <p class="saldo-label">Saldo disponible</p>
+                    <p id="saldo" class="saldo"></p>
+                </div>
+            </div>
+
+            <input id="busqueda" type="text" placeholder="Buscar operacion..." class="buscador" />
+
+            <div id="grid-operaciones" class="grid"></div>
+            <p id="sin-resultados" class="oculto vacio">No se encontro ninguna operacion.</p>
+        </div>
+    </div>
+
+    <div id="pantalla-op" class="pantalla">
+        <div class="tarjeta">
+            <button id="btn-volver">Volver</button>
+            <h2 id="op-titulo"></h2>
+
+            <div id="zona-form">
+                <label for="monto">Monto (S/)</label>
+                <input id="monto" type="number" min="1" placeholder="0.00" />
+                <button id="btn-confirmar">Confirmar</button>
+                <p id="error-monto" class="error oculto"></p>
+            </div>
+
+            <div id="zona-resultado" class="oculto resultado">
+                <p id="texto-resultado"></p>
+                <p id="saldo-resultado"></p>
+                <button id="btn-otra">Realizar otra operacion</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
